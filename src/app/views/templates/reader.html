@@ -1,0 +1,64 @@
+<header class="el-reader-header">
+
+    <h1 class="el-reader-title text-center">
+        <span>{{bookTitle}}</span>
+    </h1>
+
+    <a class="active theme-{{currentTheme.id}} el-reader-theme-icon el-reader-theme-controls" ng-click="showColorOptions = !showColorOptions"></a>
+    <div class="el-reader-controls el-reader-theme-controls box" ng-show="showColorOptions">
+        <a ng-repeat="theme in themes" ng-class="{active: theme.id== currentTheme.id}" ng-click="setTheme(theme)" class="el-reader-theme-icon theme-{{theme.id}}"></a>
+    </div>
+  
+
+</header>
+
+<a class="el-reader-btn-fullscreen" title="Tela Cheia" ui-fullscreen ui-fullscreen-title-on="Tela Cheia" ui-fullscreen-title-off="Sair da Tela Cheia">
+    <i class="fa fa-expand fa-1x"></i>
+</a>
+
+<div class="el-reader-viewer-bg theme-{{currentTheme.id}}"></div>
+
+<epubviewer src="{{src}}"
+    cfi="{{reading.Cfi}}"
+    page="{{reading.Page}}"
+    scale="true"
+    calc-subtract-height="calcSubtractHeight(e)"
+    fixedlayout="fixedlayout"
+    on-ready="afterReady(book)"
+    on-chapter-displayed="afterChapterDisplayed(e)">
+</epubviewer>
+
+<div class="el-reader-footer">
+    <div class="text-center">
+
+        <div class="el-reader-main-controls el-reader-controls" ng-if="mo.player">
+            <a ng-click="gotoFirstPage()" title="Voltar para a capa" class="el-icon-button"><i class="fa fa-book"></i></a>
+            &nbsp;
+
+            <a class="el-icon-button" title="Leia para mim" ng-click="playMO()" ng-show="mo.player && mo.isPaused">
+                <span class="fa fa-play"></span>
+            </a>
+
+            <a class="el-icon-button" title="Pausar" ng-click="pauseMO()" ng-show="mo.player && !mo.isPaused">
+                <span class="fa fa-pause"></span>
+            </a>
+
+            <span class="icon fa fa-volume-off" title="Reduzir volume" ng-click="increaseVolume(-10)"></span>
+            
+            <div class="el-reader-volume-control-container">
+                <div class="el-reader-volume-control-bar" ng-style="{width: mo.volume + '%'}">
+                </div>
+            </div>
+            <!-- <input type="range" id="volumeRange" ng-model="mo.volume" min="0" max="100" /> -->
+            <span class="icon fa fa-volume-up" title="Aumentar volume" ng-click="increaseVolume(10)"></span>
+
+        </div>
+
+    </div>
+
+   
+</div>
+<div class="el-reader-page-count" ng-show="currentPage > 0">
+    <span>{{pageRoll}}</span>
+
+</div>

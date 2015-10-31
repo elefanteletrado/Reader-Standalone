@@ -1,0 +1,30 @@
+<div class="viewer-container">
+    <div id="pageSwitch">
+        <!-- Previous page -->
+        <a id="prev" ng-if="book.spinePos!=0 && isReady" class="el-reader-viewer-nav-btn nav-btn-prev" ng-click="prevPage()" title="Próxima página">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+        <!-- Next page -->
+        <a id="next" ng-if="nextLocAvailable() && isReady && !isNextNotRequired "   class="el-reader-viewer-nav-btn nav-btn-next" ng-click="nextPage()" title="Página anterior">
+            <i class="fa fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div id="area" ng-swipe-right="prevPage()" ng-swipe-left="nextPage()" ng-show="!loading" ></div>
+</div>
+
+<div class="el-reader-message" ng-show="loading">
+    <div class="el-reader-message-overlay">
+        <div class="row">
+            <div class="small-12 medium-11 large-10 columns small-centered">
+                <div class="el-reader-message-box">
+                    <div class="el-reader-message-box-inner text-center">
+                        <span>Carregando livro. Por favor, aguarde...</span>
+                        <br />
+                        <i class="fa fa-spinner fa-pulse fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

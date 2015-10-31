@@ -1,0 +1,22 @@
+<!-- EPUBREADER -->
+<epubreader src="{{bookURL}}"
+    audio="true"
+    fixedlayout="true" ng-if="bookURL">
+</epubreader>
+
+<div class="el-reader-message" ng-show="!bookURL">
+    <div class="el-reader-message-overlay">
+        <div class="row">
+            <div class="small-12 medium-11 large-10 columns small-centered">
+                <div class="el-reader-message-box">
+                    <div class="el-reader-message-box-inner text-center">
+                        <span>Por favor, informe o endereço do livro na URL.</span>
+                        <p>Por exemplo: <br />?url=https://dl.dropboxusercontent.com/s/kx56ao2yc63ogec/A_Tartaruga_e_a_Lebre.epub?dl=1</p>
+                        <i class="fa fa-book fa-3x"></i>
+                        <i class="fa fa-question fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

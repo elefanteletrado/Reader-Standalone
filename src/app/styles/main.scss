@@ -1,0 +1,486 @@
+// bower:scss
+@import "foundation/scss/foundation.scss";
+@import "font-awesome/scss/font-awesome.scss";
+// endbower
+@import "mixins";
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
+
+
+@font-face {
+    font-family: 'ranchoregular';
+    src: url('../fonts/rancho-regular-webfont.eot');
+    src: url('../fonts/rancho-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rancho-regular-webfont.woff') format('woff'),
+         url('../fonts/rancho-regular-webfont.ttf') format('truetype'),
+         url('../fonts/rancho-regular-webfont.svg#ranchoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.el-button {
+    width: 221px;
+    font-family: 'ranchoregular';
+    @include text-shadow(3px, 1px, 0, #c56b00);
+    color: #fff;
+    line-height: 84px;
+    text-align: center;
+    font-size: 30px;
+    height: 84px;
+    @include disable-user-select;
+    background-image: url(../images/button-sprite.png);
+    background-position: -113px -1px;
+    display: inline-block;
+    &:hover {
+        background-position: -113px -92px;
+        color: #fff;
+    }
+    &:active {
+        background-position: -113px -185px;
+        color: #fff;
+    }
+    &.active {
+        background-position: -336px -1px;
+    }
+    .el-icon, span {
+        vertical-align: middle;
+    }
+}
+
+.el-secondary-button {
+    @include radius(15px 10px 15px 10px);
+    background: #7BCEB4;
+    line-height: 30px;
+    -moz-box-shadow: 2px 2px 0 #4b9036, -2px 0 0 #4b9036, inset 1px 1px 1px rgba(white, 0.3);
+    -webkit-box-shadow: 2px 2px 0 #4b9036, -2px 0 0 #4b9036, inset 1px 1px 1px rgba(white, 0.3);
+    box-shadow: 2px 2px 0 #4b9036, -2px 0 0 #4b9036, inset 1px 1px 1px rgba(white, 0.3);
+    padding: 0 30px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid rgba(white, 0.3);
+    @include text-shadow(2px, 0, 0, #1b6b64);
+    color: #fff;
+    font-family: 'ranchoregular';
+    &:hover {
+        color: #fff;
+        background: lighten(#7bceb4, 5%);
+    }
+    &:active {
+        background: darken(#7bceb4, 10%);
+        border: 1px solid transparent;
+        -moz-box-shadow: 1px 1px 0 #4b9036, -1px 0 0 #4b9036, inset 1px 1px 1px rgba(black, 0.7);
+        -webkit-box-shadow: 1px 1px 0 #4b9036, -1px 0 0 #4b9036, inset 1px 1px 1px rgba(black, 0.7);
+        box-shadow: 1px 1px 0 #4b9036, -1px 0 0 #4b9036, inset 1px 1px 1px rgba(black, 0.7);
+        @include disable-user-select;
+    }
+}
+
+.el-icon-button {
+    width: 46px;
+    height: 48px;
+    display: inline-block;
+    background-image: url(../images/button-sprite.png);
+    background-position: 0 0;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    line-height: 48px;
+    cursor: pointer;
+    @include text-shadow(1px, 2px, 0, #a75a00);
+    @include disable-user-select;
+    
+    &:active {
+        background-position: 0 -98px;
+        color: #fff;
+    }
+    &.alert {
+        @include text-shadow(1px, 2px, 0, #9a0f00);
+        background-position: 0 -151px;
+        &:hover {
+            background-position: 0 -200px;
+        }
+        &:active {
+            background-position: 0 -249px;
+        }
+    }
+}
+
+.no-touch .el-icon-button:hover {
+    background-position: 0 -49px;
+    color: #fff;
+}
+
+.touch .el-icon-button:hover, .touch .el-icon-button:active {
+    color: #fff;
+}
+
+.el-reader-header{
+    height: 70px;
+    background: #F7E9AA;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    margin-bottom: 5px;
+}
+
+.el-reader-top-nav{
+    position: absolute;
+    left: 25px;
+}
+
+.el-reader-title, 
+.el-reader-book-level {
+    font-size: 35px;
+    font-family: 'ranchoregular';
+    color: #C98800;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.el-reader-controls {
+    background: rgba(255, 255, 255, .7);
+    border-radius: 40px 30px 30px 30px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 1px #C46B00, 0 -1px 0 #C46B00;
+    display: inline-block;
+    color: #C16F00;
+    font-size: 24px;
+    @include disable-user-select;
+}
+
+.el-reader-theme-controls {
+    position: absolute;
+    right: 90px;
+    top: 5px;
+    width: 90px;
+    padding-left: 15px;
+    line-height: 1;
+
+    &.box {
+        top: 78px;
+        right: 75px;
+    }
+}
+
+
+.el-reader-btn-fullscreen {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #CA8800;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 3px 3px 0 #A96100;
+    z-index: 9;
+
+    &:hover {
+        color: #F7E9AA;
+    }
+}
+
+.el-reader-theme-icon {
+    display: inline-block;
+    margin: 2px;
+    border: 2px solid transparent;
+    opacity: .7;
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    &:hover {
+        opacity: 1;
+    }
+
+    &.active {
+         border:2px solid #C17300;
+    }
+}
+
+.el-reader-main-controls {
+    margin-top: 5px;
+    position: relative;
+}
+.el-reader-book-level {
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.el-reader-footer {
+   height: 70px;
+   margin-top: 5px;
+   background: #F7E9AA;
+   bottom: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  -webkit-box-shadow: 0 1px 5px #c9850d;
+  -ms-box-shadow: 0 1px 5px #c9850d;
+  -o-box-shadow: 0 1px 5px #c9850d;
+  box-shadow: 0 1px 5px #c9850d;
+}
+
+
+.el-reader-page-count {
+    font-family: 'ranchoregular';
+    font-size: 35px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #C98800, 2px 2px 0 #C98800, -2px -2px 0 #C98800, -1px -1px 0 #C98800;
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    z-index: 3;
+}
+
+.viewer-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.el-reader-viewer-nav-btn {
+    position: absolute;
+    top: 50%;
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    background: rgba(0, 0, 0, .4);
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 72px;
+    margin-top: -45px;
+    z-index: 2;
+    box-sizing: border-box;
+    @include disable-user-select;
+    display: block;
+
+    &:hover {
+        color: #fff;
+        text-shadow: 1px 1px 0 #ccc;
+        box-shadow: 0 0 3px #000;
+
+    }
+
+    &.nav-btn-next {
+        right: 15px;
+        padding-left: 4px;
+    }
+
+    &.nav-btn-prev {
+        left: 15px;
+        padding-right: 4px;
+    }
+}
+
+.el-reader-action-button {
+    top: 50%;
+    position: absolute;
+    right: 15px;
+    margin-top: -65px;
+    z-index: 2;
+}
+
+
+.el-reader-volume-control-container{
+    width: 200px;
+    border-radius: 999px;
+    border: 2px solid #C16F00;
+    display: inline-block;
+    height: 20px;
+    padding: 1px;
+}
+
+.el-reader-volume-control-bar {
+    height: 100%;
+    background: #FBC200;
+    border-radius: 999px;
+    box-shadow: inset -1px -1px 2px #C16F00;
+    transition: width .2s ease;
+}
+
+.el-reader-viewer-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.theme-default {
+    background-color: #9fdaed;
+    background-image: url('../images/clouds-bg.png');
+    background-repeat: repeat-x;
+    background-position: 10px 120px;
+}
+
+.theme-night {
+    background-color: #10538E;
+    background-image: url('../images/night-bg.png');
+    background-repeat: repeat-x;
+}
+
+.theme-green {
+    background-color: #8AC172;
+}
+
+.theme-pink {
+    background-color: #E0A5C0;
+}
+
+.theme-brown {
+    background-color: #733F00;
+}
+
+.theme-yellow {
+    background-color: #EFC269;
+}
+
+#area {
+    position:relative;
+    z-index: 1;
+    width:1024px;
+    height: 768px;
+    left: 50%;
+    margin-top: 100%;
+    top: 50%;
+    margin-left: -512px;
+    background: #fff;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 2px #333;
+    transition: margin .2s ease;
+
+    &.portrait {
+        width: 768px;
+        height: 1024px;
+        margin-left: -384px;
+    }
+
+    iframe {
+        border: none;
+    }
+}
+
+.el-reader-message-overlay {
+    background:rgba(0,0,0,.7);
+    width:100%;
+    height:100%;
+    position:fixed;
+    overflow-y: auto;
+    top:0;
+    left:0;
+    z-index:999;
+
+}
+
+.el-reader-message-box {
+    font-family: 'ranchoregular';
+    color: #C98800;
+    box-shadow: 0 2px 1px #C46B00, 0 -1px 0 #C46B00;
+    z-index: 9999;
+    padding: 40px;
+    border-radius: 60px 35px 70px 80px;
+    font-size: 25px;
+    margin-top: 80px;
+    background-color: #F7E9AA;
+    border: 4px solid #C98800; 
+}
+
+.el-reader-message-box-inner {
+    max-height: 370px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    p {
+        font-size: 15px;
+        font-family:'MryiadProRegular', Helvetica, Arial, sans-serif;
+        padding: 0 10px;
+     }
+}
+
+.el-reader-message-title {
+    font-family: 'ranchoregular';
+    position: relative;
+    top: -105px;
+    margin-bottom: -55px;
+    color: #fff;
+    text-shadow: none;
+    font-size: 36px;
+    text-align: center;
+}
+
+.el-reader-message-label {
+    background: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 1px #ccc inset;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 90px 105px 90px 60px;
+    white-space: nowrap;
+}
+
+.el-reader-message-reading-results{
+    font-size: 40px;
+    color: #C46B00;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+:-webkit-full-screen {
+    .el-reader-header,  .el-reader-footer {
+         display: none;
+
+    }
+} 
+
+:-moz-full-screen {
+    .el-reader-header, .el-reader-footer {
+         display: none;
+    }
+}
+
+:-ms-fullscreen {
+    .el-reader-header, .el-reader-footer {
+         display: none;
+    }
+
+} 
+
+:fullscreen { 
+    .el-reader-header, .el-reader-footer {
+         display: none;
+    }
+}
+
+:full-screen  {
+    .el-reader-header, .el-reader-footer {
+         display: none;
+    }
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+.el-reader-message-link {
+    color: #a75b00;
+    border-radius: 15px;
+    background: #f7edbe;
+    padding: 20px 35px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid transparent;
+    display: inline-block;
+
+    &:hover {
+     background: #f8f2d7;
+     color: #a75b00;
+    }
+
+    &:active {
+        background: none;
+        border: 2px solid #e5c285;
+    }
+}
