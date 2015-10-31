@@ -20,7 +20,7 @@ Running `grunt test` will run the unit tests with karma.
 
 ## Test books
 
-Use on of the links below in the URL like this: ?url=path_to_book.epub.
+Use one of the links below in the URL like this: ?url=path_to_book.epub.
 
 https://dl.dropboxusercontent.com/s/7mxg0u4ecn90lp6/Brincando_Com_Palavras.epub?dl=1
 https://dl.dropboxusercontent.com/s/axnvcvafj8eh4mm/A_Cigarra_e_a_Formiga.epub?dl=1
