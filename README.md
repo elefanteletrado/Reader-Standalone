@@ -1,4 +1,4 @@
-# reader-stand-alone
+# reader-standalone
 
 This is the source code of the stand-alone EPUB 3.0 reader from Elefante Letrado.
 
