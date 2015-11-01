@@ -243,6 +243,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
+  @include disable-user-select;
   z-index: 1;
 }
 

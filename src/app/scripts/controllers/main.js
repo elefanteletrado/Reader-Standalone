@@ -13,6 +13,9 @@ angular.module('readerStandAloneApp')
     if ($routeParams.url) {
         var url = $routeParams.url;
         if (url.match(urlregex)) {
+            if ($routeParams.audio == 1) {
+                $scope.audio = true;
+            }
             $scope.bookURL = $routeParams.url;  
         }
     }
