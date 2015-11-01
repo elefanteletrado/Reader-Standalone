@@ -27,6 +27,10 @@ https://dl.dropboxusercontent.com/s/axnvcvafj8eh4mm/A_Cigarra_e_a_Formiga.epub?d
 https://dl.dropboxusercontent.com/s/kx56ao2yc63ogec/A_Tartaruga_e_a_Lebre.epub?dl=1
 https://dl.dropboxusercontent.com/s/xhzqtafx0wrmd1v/Letra_D.epub?dl=1
 
+### Audio Support
+
+To enable audio (media overlay), add the &audio=1 to the request.
+
 ## To-do
 
 * How to restrict where to load books from
