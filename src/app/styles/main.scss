@@ -396,8 +396,7 @@
 
 .el-reader-message-box-inner {
     max-height: 370px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     p {
         font-size: 15px;
         font-family:'MryiadProRegular', Helvetica, Arial, sans-serif;

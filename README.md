@@ -31,5 +31,5 @@ https://dl.dropboxusercontent.com/s/xhzqtafx0wrmd1v/Letra_D.epub?dl=1
 
 * How to restrict where to load books from
 * Fix issue on Safari with fonts from CSS template
-* Test on multiple versions of Internet Explorer
+* Fix book loading issue on Internet Explorer
 * Should we deploy it on our side, we must implement a back-end for key management
