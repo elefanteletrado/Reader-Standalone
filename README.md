@@ -33,7 +33,5 @@ To enable audio (media overlay), add the &audio=1 to the request.
 
 ## To-do
 
-* How to restrict where to load books from
-* Fix issue on Safari with fonts from CSS template
-* Fix book loading issue on Internet Explorer
+* Once the origin of books is known, restrict by domain from inside the app
 * Should we deploy it on our side, we must implement a back-end for key management
