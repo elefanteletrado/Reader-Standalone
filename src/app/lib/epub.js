@@ -8006,4 +8006,3 @@ EPUBJS.Unarchiver.prototype.toStorage = function(entries){
 
 })();
 
-//# sourceMappingURL=epub.js.map

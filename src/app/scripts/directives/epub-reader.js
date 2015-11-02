@@ -117,7 +117,6 @@ angular.module('readerStandAloneApp')
             };
 
             $scope.afterReady = function (book) {
-                console.log(book);
                 $scope.book = book;
                 $scope.totalPages = $scope.book.spine.length - 1;
                 $scope.bookTitle = $scope.book.metadata.bookTitle;
