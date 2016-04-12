@@ -1,7 +1,8 @@
 <!-- EPUBREADER -->
 <epubreader src="{{bookURL}}"
     audio="audio"
-    fixedlayout="true" ng-if="bookURL">
+    ng-if="bookURL"
+    cfi="cfi">
 </epubreader>
 
 <div class="el-reader-message" ng-show="!bookURL">
@@ -15,7 +16,7 @@
                         <br />
                         <span>Por favor, informe o endereço do livro na URL.</span>
                         <br />
-                        <p>Por exemplo: <br /><strong>?url=https://dl.dropboxusercontent.com/s/kx56ao2yc63ogec/A_Tartaruga_e_a_Lebre.epub?dl=1</strong></p>
+                        <p>Por exemplo: <br /><strong>?url=https://dl.dropboxusercontent.com/s/qgashwuoujjk5x3/O_Que_e_o_Que_e_V.epub</strong></p>
                         <p><i class="fa fa-volume-up fa-2x"></i> Para abrir com áudio: <strong>&audio=1</strong></p>
                     </div>
                 </div>
@@ -23,3 +24,4 @@
         </div>
     </div>
 </div>
+

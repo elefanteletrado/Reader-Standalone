@@ -1,4 +1,13 @@
 <header class="el-reader-header">
+    <nav class="el-reader-top-nav">
+        <ul class="inline-list">
+            <li>
+                <a ng-click="showTOC()" class="el-icon-button" title="Mostrar sumário">
+                    <i class="fa fa-list-ul"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <h1 class="el-reader-title text-center">
         <span>{{bookTitle}}</span>
@@ -19,22 +28,39 @@
 <div class="el-reader-viewer-bg theme-{{currentTheme.id}}"></div>
 
 <epubviewer src="{{src}}"
-    cfi="{{reading.Cfi}}"
-    page="{{reading.Page}}"
-    scale="true"
+    cfi="{{cfi}}"
     calc-subtract-height="calcSubtractHeight(e)"
-    fixedlayout="fixedlayout"
+    font-size="{{fontSize.current}}"
     on-ready="afterReady(book)"
+    on-page-changed="afterPageChanged(locationCfi)"
     on-chapter-displayed="afterChapterDisplayed(e)">
 </epubviewer>
 
 <div class="el-reader-footer">
     <div class="text-center">
-
+        <div class="el-reader-main-controls el-reader-controls" ng-show="!mo.player && !prePaginated">
+            <a class="el-icon-button" title="Reduzir tamanho do texto" ng-click="changeFontSize(-1)">
+                <span class="fa fa-minus"></span>
+            </a>
+            <small>A</small> A
+            <a class="el-icon-button" title="Aumentar tamanho do texto" ng-click="changeFontSize(1)">
+                <span class="fa fa-plus"></span>
+            </a>
+        </div>
         <div class="el-reader-main-controls el-reader-controls" ng-show="mo.player">
+           
             <a ng-click="gotoFirstPage()" title="Voltar para a capa" class="el-icon-button"><i class="fa fa-book"></i></a>
             &nbsp;
-
+            <span ng-if="!prePaginated">
+                 <a class="el-icon-button" title="Reduzir tamanho do texto" ng-click="changeFontSize(-1)">
+                    <span class="fa fa-minus"></span>
+                </a>
+                <small>A</small> A
+                <a class="el-icon-button" title="Aumentar tamanho do texto" ng-click="changeFontSize(1)">
+                    <span class="fa fa-plus"></span>
+                </a>
+                &nbsp;
+            </span>
             <a class="el-icon-button" title="Leia para mim" ng-click="playMO()" ng-if="mo.isPaused">
                 <span class="fa fa-play"></span>
             </a>
@@ -43,14 +69,14 @@
                 <span class="fa fa-pause"></span>
             </a>
 
-            <span class="icon fa fa-volume-off" title="Reduzir volume" ng-click="increaseVolume(-10)"></span>
+            <span class="icon fa fa-volume-off" title="Reduzir volume" ng-click="changeVolume(-10)"></span>
             
             <div class="el-reader-volume-control-container">
                 <div class="el-reader-volume-control-bar" ng-style="{width: mo.volume + '%'}">
                 </div>
             </div>
             <!-- <input type="range" id="volumeRange" ng-model="mo.volume" min="0" max="100" /> -->
-            <span class="icon fa fa-volume-up" title="Aumentar volume" ng-click="increaseVolume(10)"></span>
+            <span class="icon fa fa-volume-up" title="Aumentar volume" ng-click="changeVolume(10)"></span>
 
         </div>
 
@@ -58,7 +84,30 @@
 
    
 </div>
-<div class="el-reader-page-count" ng-show="currentPage > 0">
-    <span>{{pageRoll}}</span>
+<div class="el-reader-page-count" ng-show="currentPage > 0" ng-if="prePaginated">
+    <span>{{currentPage}}/{{totalPages}}</span>
+</div>
 
+<div class="el-reader-page-count" ng-if="!prePaginated" ng-show="totalLocations > 0">
+    <span>{{currentLocation.percent}}%</span>
+</div>
+
+<div class="el-reader-message autosize" ng-show="shouldShowTOC">
+    <div class="el-reader-message-overlay">
+        <div class="row">
+            <div class="small-12 medium-9 large-8 columns small-centered">
+                <div class="el-reader-message-box">
+                    <h2 class="el-reader-message-title">Sumário</h2>
+                    <a ng-click="hideTOC()" class="right el-reader-message-close"><i class="fa fa-close"></i></a>
+                    <div class="el-reader-message-box-inner">
+                        <ul class="el-reader-toc">
+                            <li ng-repeat="item in toc">
+                                <a ng-click="gotoTOCItem(item); hideTOC();">{{item.label}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

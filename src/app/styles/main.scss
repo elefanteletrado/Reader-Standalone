@@ -383,6 +383,22 @@
 
 }
 
+
+.el-reader-message {
+    &.autosize {
+        .el-reader-message-box-inner {
+            overflow-y: scroll;
+            max-height: inherit;
+        }
+    }
+
+    .el-reader-message-close {
+        color: #C98800;
+        &:hover {
+            color: #a75b00;
+        }
+    }
+}
 .el-reader-message-box {
     font-family: 'ranchoregular';
     color: #C98800;
@@ -405,6 +421,7 @@
         padding: 0 10px;
      }
 }
+
 
 .el-reader-message-title {
     font-family: 'ranchoregular';
@@ -483,5 +500,15 @@
     &:active {
         background: none;
         border: 2px solid #e5c285;
+    }
+}
+
+.el-reader-toc {
+    li a {
+        font-size: 18px;
+        color: #C98800;
+        &:hover {
+            color: #a75b00;
+        }
     }
 }
