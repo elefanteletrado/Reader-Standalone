@@ -19,6 +19,6 @@ angular.module('readerStandAloneApp')
             $scope.bookURL = $routeParams.url;  
         }
     }
-    $scope.cfi = 'epubcfi(/6/24[dom-quixote-8]!4/2[dom-quixote]/88/1:38)';
+    // $scope.cfi = 'epubcfi(/6/24[dom-quixote-8]!4/2[dom-quixote]/88/1:38)';
   
   });
