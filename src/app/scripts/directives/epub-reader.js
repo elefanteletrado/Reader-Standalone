@@ -30,6 +30,11 @@ angular.module('readerStandAloneApp')
             };
 
             $scope.totalLocations = 0;
+
+            // watch for when locations are calculated
+            $scope.$watch('book.locations.total', function (newValue, oldValue) {
+                $scope.setPageNumber();
+            });
         
             $scope.themes = [{ id: 'default' },{id: 'night'},{id: 'green'},{id: 'pink'},{id: 'brown'}, {id: 'yellow'}];
 
@@ -129,13 +134,17 @@ angular.module('readerStandAloneApp')
             $scope.setPageNumber = function () {
                 if (typeof $scope.book !== 'undefined') {
                     if ($scope.prePaginated) {
-                        $scope.currentPage = $scope.book.currentChapter.spinePos;
-                        $scope.totalPages = $scope.book.spine.length - 1;
+                        if ($scope.book.spine.length > 0) {
+                            $scope.currentPage = $scope.book.currentChapter.spinePos;
+                            $scope.totalPages = $scope.book.spine.length - 1;
+                        }
                     } else {
-                        var percentageFromCfi = $scope.book.locations.percentageFromCfi($scope.book.getCurrentLocationCfi());
-                        $scope.currentLocation.percent = Math.round(percentageFromCfi * 100);
-                        $scope.currentLocation.number = $scope.book.locations.locationFromCfi($scope.book.getCurrentLocationCfi())
-                        $scope.totalLocations = $scope.book.locations.total;
+                        if ($scope.book.locations.total > 0) {
+                            var percentageFromCfi = $scope.book.locations.percentageFromCfi($scope.book.getCurrentLocationCfi());
+                            $scope.currentLocation.percent = Math.round(percentageFromCfi * 100);
+                            $scope.currentLocation.number = $scope.book.locations.locationFromCfi($scope.book.getCurrentLocationCfi())
+                            $scope.totalLocations = $scope.book.locations.total;
+                        }
                     }
                 }
             };
