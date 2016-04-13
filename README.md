@@ -22,10 +22,15 @@ Running `grunt test` will run the unit tests with karma.
 
 Use one of the links below in the URL like this: ?url=path_to_book.epub.
 
-https://dl.dropboxusercontent.com/s/7mxg0u4ecn90lp6/Brincando_Com_Palavras.epub?dl=1
-https://dl.dropboxusercontent.com/s/axnvcvafj8eh4mm/A_Cigarra_e_a_Formiga.epub?dl=1
-https://dl.dropboxusercontent.com/s/kx56ao2yc63ogec/A_Tartaruga_e_a_Lebre.epub?dl=1
-https://dl.dropboxusercontent.com/s/xhzqtafx0wrmd1v/Letra_D.epub?dl=1
+https://dl.dropboxusercontent.com/s/qgashwuoujjk5x3/O_Que_e_o_Que_e_V.epub
+https://dl.dropboxusercontent.com/s/k7mq313uv15ytge/A_Chave_do_Tamanho_epub3.epub
+https://dl.dropboxusercontent.com/s/gnz076vnuu2b1fg/OMedo.epub
+https://dl.dropboxusercontent.com/s/8ssdv8webmi12km/Familia_Sujo_v1.epub
+https://dl.dropboxusercontent.com/s/vfahi6tt4xb8ws8/DomQuixoteDasCriancas.epub
+https://dl.dropboxusercontent.com/s/se4xx7w7nomjtqp/OSaci.epub
+https://dl.dropboxusercontent.com/s/biubfkcqncuoqu0/Branca_de_Neve_v1.epub
+https://dl.dropboxusercontent.com/s/6scwxjrald1gkxn/O_flautista_Hamelin_v1.epub
+https://dl.dropboxusercontent.com/s/uqs8x8o2hbavksc/MaluquinhoAssombradoOK.epub
 
 ### Audio Support
 
