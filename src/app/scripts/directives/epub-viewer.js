@@ -131,7 +131,7 @@ angular.module('readerStandAloneApp')
                 rendered.then(function () {  
 
                   $area.style.width = book.renderer.formated.pageWidth + 'px'; 
-                  $area.style.height = book.renderer.formated.pageHeight + 'px';
+		  $area.style.height = book.renderer.formated.pageHeight + 'px';
 
                   if (scope.layout !== 'pre-paginated') {
                     $area.style.boxSizing = 'border-box';
@@ -145,46 +145,21 @@ angular.module('readerStandAloneApp')
                         scaleSubtractHeight = scope.calcSubtractHeight();
                     }
                     
-                    var clientWidth =  document.body.clientWidth;
-                    var clientHeight =  document.body.clientHeight - scaleSubtractHeight;
-
-                    var sizeFactors = {
-                      'x': {
-                        'client': clientWidth,
-                        'area': $area.offsetWidth
-                      },
-                      'y': {
-                        'client': clientHeight,
-                        'area': $area.offsetHeight
-                      }
-                    };
-
-                    var factor = 'y';
-                    
-                    // if window width is higher than height, use x axis factor
-                    if (clientHeight + scaleSubtractHeight >= clientWidth) {
-                      factor = 'x';
-                    } 
-                   
-                    var scaleValue = (sizeFactors[factor].client - sizeFactors[factor].area) / sizeFactors[factor].area;
-                   
-                    if (scaleValue < 0) {
-                      scaleValue = 1 - Math.abs(scaleValue);
-                    } else {
-                      scaleValue = 1 + Math.abs(scaleValue);
-                    }
+		    var maxWidth =  document.body.clientWidth;
+                    var maxHeight =  document.body.clientHeight - scaleSubtractHeight;
+                    var scale = Math.min(maxWidth / $area.offsetWidth, maxHeight / $area.offsetHeight);
                 
-                    var scaleCssValue = 'scale(' + scaleValue + ')';
+                    var scaleCss = 'scale(' + scale + ')';
                     var scaleOrigin = '50% 0';
 
                     // CSS: transform: scale(x);
-                    $area.style.transform = scaleCssValue;
+                    $area.style.transform = scaleCss;
 
                     // CSS: transform-origin: x;
                     $area.style.transformOrigin = scaleOrigin;
 
                     // center container
-                    $area.style.marginTop = - ($area.offsetHeight * scaleValue) / 2  + 'px';
+                    $area.style.marginTop = - ($area.offsetHeight * scale) / 2  + 'px';
                     $area.style['margin-left'] = -(book.renderer.formated.pageWidth / 2) + 'px';
 
                 };
