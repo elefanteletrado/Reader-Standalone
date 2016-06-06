@@ -130,8 +130,8 @@ angular.module('readerStandAloneApp')
 
                 rendered.then(function () {  
 
-                  $area.style.width = book.renderer.formated.pageWidth + 'px'; 
-		  $area.style.height = book.renderer.formated.pageHeight + 'px';
+                  $area.style.width = book.renderer.formated.pageWidth + 'px';
+                  $area.style.height = book.renderer.formated.pageHeight + 'px';
 
                   if (scope.layout !== 'pre-paginated') {
                     $area.style.boxSizing = 'border-box';
