@@ -135,7 +135,8 @@ angular.module('readerStandAloneApp')
 
                   if (scope.layout !== 'pre-paginated') {
                     $area.style.boxSizing = 'border-box';
-                    $area.style.padding = '20px';
+                    $area.style.padding = '0 15px';
+                    $area.style.overflow = 'hidden';
                     book.setStyle('font-family', 'Georgia, Times, Times New Roman, serif');
                   } 
                 
